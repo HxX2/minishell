@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 01:51:04 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/22 15:07:48 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/22 19:53:14 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,28 @@ void	ft_chdir(char *path)
 		g_gb.exit_statut = 1;
 		ft_putstr_fd("minishell: cd: ", 2);
 		ft_putstr_fd(path, 2);
-		if (!is_file(path))
+		if (access(path, F_OK))
 			ft_putstr_fd(": No such file or directory\n", 2);
-		else
+		else if (is_file(path))
 			ft_putstr_fd(": Not a directory\n", 2);
 	}
 	else
 	{
 		set_envval("OLDPWD", get_envval("PWD"));
 		set_envval("PWD", getcwd(NULL, 0));
-		free(g_gb.curent);
-		if (get_env("PWD"))
+		if (!getcwd(NULL, 0))
+		{
+			set_envval("PWD", ft_strjoin(g_gb.curent, "/."));
+			g_gb.curent = ft_strjoin(g_gb.curent, "/.");
+			ft_putstr_fd("cd: error retrieving current directory: getcwd: ", 2);
+			ft_putstr_fd("cannot access parent directories: ", 2);
+			ft_putstr_fd("No such file or directory\n", 2);
+		}
+		else
+		{
 			g_gb.curent = ft_strdup(get_envval("PWD"));
-		printf("%s\n", getcwd(NULL, 0));
+			printf("%s\n", getcwd(NULL, 0));
+		}
 	}
 }
 
