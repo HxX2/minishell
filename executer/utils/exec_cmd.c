@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:36:31 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/22 11:33:15 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/22 17:14:35 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void child_proc(char *cmdpath, char **args, char **envp)
 
 void	exe_cmd(char **args)
 {
-	char *cmdpath;
-	pid_t pid;
+	char	*cmdpath;
+	pid_t	pid;
 
 	cmdpath = get_cmd_path(args[0]);
 	if (throw_error(args[0], cmdpath))

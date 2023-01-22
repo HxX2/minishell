@@ -14,6 +14,7 @@ README.md
 # make
 a.out
 *.o
+*.a
 
 # c++ debuger
 *.dSYM
