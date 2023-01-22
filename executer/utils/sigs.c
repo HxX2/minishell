@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sigs.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/18 00:22:15 by zlafou            #+#    #+#             */
+/*   Updated: 2023/01/22 14:35:07 by zlafou           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../minishell.h"
+
+void	sig_int(int signal)
+{
+	if (signal == SIGINT)
+	{
+		g_gb.exit_statut = 1;
+		char *s = ps1();
+		printf("\r> %s    \n%s", rl_line_buffer, s);
+		rl_replace_line("", 0);
+		free(s);
+	}
+}
+
+void	signals(void)
+{    
+	signal(SIGINT, sig_int);
+	signal(SIGQUIT, SIG_IGN);
+}

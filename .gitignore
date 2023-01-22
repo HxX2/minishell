@@ -1,0 +1,23 @@
+#-----------------------#
+#   Minishell Ignores   #
+#-----------------------#
+
+# files without ext
+*
+!/**/
+!*.*
+
+# vscode
+README.md
+.DS_Store
+
+# make
+a.out
+*.o
+
+# c++ debuger
+*.dSYM
+ft*.out
+
+# minishell
+ref
