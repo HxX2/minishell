@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:11:34 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/22 17:13:07 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/23 07:38:28 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ char	*ps1(void)
 
 int	get_buffer(char **buffer)
 {
+	char *pr;
+
 	ft_free(buffer);
-	*buffer = readline(ps1());
+	pr = ps1();
+	*buffer = readline(pr);
+	free(pr);
 	g_gb.here_doc = 0;
 	if (!*buffer)
 		return (0);
@@ -50,10 +54,30 @@ void	freee(t_cmd **cmd)
 	}
 }
 
+void print_tree(t_cmd *cmd)
+{
+	t_execcmd	*exec;
+	t_pipecmd	*pip;
+
+	if (cmd->type == EXEC)
+	{
+		exec = (t_execcmd *)cmd;
+		printf("cmd : %s\n", exec->argument[0]);
+	}
+	if (cmd->type == PIPE)
+	{
+		printf("pipe\n");
+		pip = (t_pipecmd *)cmd;
+		print_tree(pip->left);
+		print_tree(pip->right);
+	}
+}
+
 void	executer_sudo(t_cmd *cmd)
 {
 	t_execcmd	*x_cmd;
 
+	// print_tree(cmd);
 	env_cast();
 	if (cmd->type == EXEC)
 	{

@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:36:31 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/22 17:14:35 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/23 07:46:07 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void	exe_cmd(char **args)
 	env_cast();
 	if (!pid)
 		child_proc(cmdpath, args, g_gb.envp);
+	free(cmdpath);
 	while (wait(NULL) != -1)
 		;
 }

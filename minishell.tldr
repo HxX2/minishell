@@ -5588,6 +5588,646 @@
               ]
             ],
             "isComplete": true
+          },
+          "0cf59213-120d-4b92-3f71-4ce4af7a2674": {
+            "id": "0cf59213-120d-4b92-3f71-4ce4af7a2674",
+            "type": "draw",
+            "name": "Draw",
+            "parentId": "page",
+            "childIndex": 61,
+            "point": [
+              995.23,
+              1846.48
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "cyan",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "points": [
+              [
+                0,
+                0.34,
+                0.5
+              ],
+              [
+                0,
+                0.34,
+                0.5
+              ],
+              [
+                7.48,
+                0,
+                0.5
+              ],
+              [
+                30.18,
+                0.34,
+                0.5
+              ],
+              [
+                69.4,
+                0.34,
+                0.5
+              ],
+              [
+                113.54,
+                0.34,
+                0.5
+              ],
+              [
+                167.12,
+                0.34,
+                0.5
+              ],
+              [
+                224.66,
+                0.34,
+                0.5
+              ],
+              [
+                278.24,
+                0.34,
+                0.5
+              ],
+              [
+                322.38,
+                0.34,
+                0.5
+              ],
+              [
+                361.4,
+                0.34,
+                0.5
+              ],
+              [
+                385.26,
+                0.34,
+                0.5
+              ],
+              [
+                400.66,
+                0.34,
+                0.5
+              ],
+              [
+                409.24,
+                0.34,
+                0.5
+              ],
+              [
+                413.6,
+                0.34,
+                0.5
+              ],
+              [
+                415.42,
+                0.34,
+                0.5
+              ],
+              [
+                415.84,
+                0.34,
+                0.5
+              ]
+            ],
+            "isComplete": true
+          },
+          "704daa05-2f67-47cb-07d3-44aefd456394": {
+            "id": "704daa05-2f67-47cb-07d3-44aefd456394",
+            "type": "draw",
+            "name": "Draw",
+            "parentId": "page",
+            "childIndex": 62,
+            "point": [
+              1520.61,
+              1859.5
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "cyan",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "points": [
+              [
+                0.12,
+                0,
+                0.5
+              ],
+              [
+                0.12,
+                0,
+                0.5
+              ],
+              [
+                0,
+                2.32,
+                0.5
+              ],
+              [
+                0,
+                0,
+                0.5
+              ],
+              [
+                0.12,
+                8.52,
+                0.5
+              ],
+              [
+                0.12,
+                14.7,
+                0.5
+              ],
+              [
+                0.12,
+                25.06,
+                0.5
+              ],
+              [
+                0.12,
+                42.86,
+                0.5
+              ],
+              [
+                0.12,
+                68.22,
+                0.5
+              ],
+              [
+                0.12,
+                112.8,
+                0.5
+              ],
+              [
+                0.12,
+                168.42,
+                0.5
+              ],
+              [
+                0.12,
+                241,
+                0.5
+              ],
+              [
+                0.12,
+                362.76,
+                0.5
+              ],
+              [
+                0.12,
+                447.44,
+                0.5
+              ],
+              [
+                0.12,
+                527.08,
+                0.5
+              ],
+              [
+                0.12,
+                606.62,
+                0.5
+              ],
+              [
+                0.12,
+                683.98,
+                0.5
+              ],
+              [
+                0.12,
+                745.6,
+                0.5
+              ],
+              [
+                0.12,
+                760.32,
+                0.5
+              ],
+              [
+                0.12,
+                788.5,
+                0.5
+              ],
+              [
+                0.12,
+                808.68,
+                0.5
+              ],
+              [
+                0.12,
+                821.96,
+                0.5
+              ],
+              [
+                0.12,
+                832.38,
+                0.5
+              ],
+              [
+                0.12,
+                845.32,
+                0.5
+              ],
+              [
+                0.12,
+                848.8,
+                0.5
+              ],
+              [
+                0.12,
+                852.68,
+                0.5
+              ],
+              [
+                0.12,
+                853.56,
+                0.5
+              ]
+            ],
+            "isComplete": true
+          },
+          "8f3afdc8-43bf-4364-3603-daf7a37d010f": {
+            "id": "8f3afdc8-43bf-4364-3603-daf7a37d010f",
+            "type": "rectangle",
+            "name": "Rectangle",
+            "parentId": "page",
+            "childIndex": 64,
+            "point": [
+              2001.55,
+              1547.28
+            ],
+            "size": [
+              295.64,
+              109.04
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "pipe",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "87dfb9ce-69d1-40b5-00b3-e6888e4d71a0": {
+            "id": "87dfb9ce-69d1-40b5-00b3-e6888e4d71a0",
+            "type": "arrow",
+            "name": "Arrow",
+            "parentId": "page",
+            "childIndex": 65,
+            "point": [
+              1871.77,
+              1661.22
+            ],
+            "rotation": 0,
+            "bend": 0,
+            "handles": {
+              "start": {
+                "id": "start",
+                "index": 0,
+                "point": [
+                  188,
+                  0
+                ],
+                "canBind": true
+              },
+              "end": {
+                "id": "end",
+                "index": 1,
+                "point": [
+                  0,
+                  142.28
+                ],
+                "canBind": true
+              },
+              "bend": {
+                "id": "bend",
+                "index": 2,
+                "point": [
+                  94,
+                  71.14
+                ]
+              }
+            },
+            "decorations": {
+              "end": "arrow"
+            },
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "37b81a84-2ef6-4fff-2876-cf2d89009408": {
+            "id": "37b81a84-2ef6-4fff-2876-cf2d89009408",
+            "type": "arrow",
+            "name": "Arrow",
+            "parentId": "page",
+            "childIndex": 66,
+            "point": [
+              2198.29,
+              1657.1399999999999,
+              0.5
+            ],
+            "rotation": 0,
+            "bend": 0,
+            "handles": {
+              "start": {
+                "id": "start",
+                "index": 0,
+                "point": [
+                  0,
+                  0
+                ],
+                "canBind": true
+              },
+              "end": {
+                "id": "end",
+                "index": 1,
+                "point": [
+                  193.88,
+                  183.02
+                ],
+                "canBind": true
+              },
+              "bend": {
+                "id": "bend",
+                "index": 2,
+                "point": [
+                  96.94,
+                  91.51
+                ]
+              }
+            },
+            "decorations": {
+              "end": "arrow"
+            },
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "be1c2591-99d5-4058-1b4d-0c9faccc73b6": {
+            "id": "be1c2591-99d5-4058-1b4d-0c9faccc73b6",
+            "type": "rectangle",
+            "name": "Rectangle",
+            "parentId": "page",
+            "childIndex": 65,
+            "point": [
+              2257.47,
+              1865.08
+            ],
+            "size": [
+              295.64,
+              109.04
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "pipe",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "e2654380-ccb5-4328-3350-c3730294c995": {
+            "id": "e2654380-ccb5-4328-3350-c3730294c995",
+            "type": "rectangle",
+            "name": "Rectangle",
+            "parentId": "page",
+            "childIndex": 67,
+            "point": [
+              1702.35,
+              1872.12
+            ],
+            "size": [
+              287.2,
+              111.02
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "ls",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "e24b2911-67a8-40aa-318c-d77b42997836": {
+            "id": "e24b2911-67a8-40aa-318c-d77b42997836",
+            "type": "rectangle",
+            "name": "Rectangle",
+            "parentId": "page",
+            "childIndex": 66,
+            "point": [
+              2533.97,
+              2185.32
+            ],
+            "size": [
+              295.64,
+              109.04
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "wc",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "21302bae-db83-47b7-38e8-6f787eea4bc6": {
+            "id": "21302bae-db83-47b7-38e8-6f787eea4bc6",
+            "type": "arrow",
+            "name": "Arrow",
+            "parentId": "page",
+            "childIndex": 65,
+            "point": [
+              2148.23,
+              1972.28
+            ],
+            "rotation": 0,
+            "bend": 0,
+            "handles": {
+              "start": {
+                "id": "start",
+                "index": 0,
+                "point": [
+                  188,
+                  0
+                ],
+                "canBind": true
+              },
+              "end": {
+                "id": "end",
+                "index": 1,
+                "point": [
+                  0,
+                  142.28
+                ],
+                "canBind": true
+              },
+              "bend": {
+                "id": "bend",
+                "index": 2,
+                "point": [
+                  94,
+                  71.14
+                ]
+              }
+            },
+            "decorations": {
+              "end": "arrow"
+            },
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "542a7754-fee6-477b-2c99-e3a3e7b6b6cd": {
+            "id": "542a7754-fee6-477b-2c99-e3a3e7b6b6cd",
+            "type": "arrow",
+            "name": "Arrow",
+            "parentId": "page",
+            "childIndex": 66,
+            "point": [
+              2479.03,
+              1971.22
+            ],
+            "rotation": 0,
+            "bend": 0,
+            "handles": {
+              "start": {
+                "id": "start",
+                "index": 0,
+                "point": [
+                  0,
+                  0
+                ],
+                "canBind": true
+              },
+              "end": {
+                "id": "end",
+                "index": 1,
+                "point": [
+                  193.88,
+                  183.02
+                ],
+                "canBind": true
+              },
+              "bend": {
+                "id": "bend",
+                "index": 2,
+                "point": [
+                  96.94,
+                  91.51
+                ]
+              }
+            },
+            "decorations": {
+              "end": "arrow"
+            },
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "5118e5da-3559-4e12-0207-eb1a9fe40ae6": {
+            "id": "5118e5da-3559-4e12-0207-eb1a9fe40ae6",
+            "type": "rectangle",
+            "name": "Rectangle",
+            "parentId": "page",
+            "childIndex": 66,
+            "point": [
+              1967.63,
+              2187.08
+            ],
+            "size": [
+              295.64,
+              109.04
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "lightGray",
+              "size": "medium",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "textAlign": "start"
+            },
+            "label": "cat",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
           }
         },
         "bindings": {

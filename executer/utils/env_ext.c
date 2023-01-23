@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 00:37:15 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/19 06:41:03 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/23 08:02:51 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	set_envval(char *key, char *new_val)
 	{
 		if (!ft_strcmp(node->key, key))
 		{
+			free(node->value);
 			node->value = new_val;
 			return ;
 		}
