@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:36:31 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/23 07:46:07 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/23 12:10:45 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_cmd_path(char *cmd)
 	int		i;
 
 	if (ft_strchr(cmd, '/'))
-		return (cmd);
+		return (ft_strdup(cmd));
 	else
 	{
 		paths = get_paths(get_envval("PATH"));

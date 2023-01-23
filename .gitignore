@@ -20,5 +20,5 @@ a.out
 *.dSYM
 ft*.out
 
-# minishell
-ref
+# do not ignore
+!makefile
