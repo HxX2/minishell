@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell_utilss.c                                     :+:      :+:    :+:   */
+/*   shell_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:14:32 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/17 23:23:40 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:44:57 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	free_all(t_cmd *cmd)
 		free_all(pipcmd->right);
 		free(pipcmd);
 	}
-	if (cmd->type == EXEC)
+	else if (cmd->type == EXEC)
 	{
 		execcmd = (t_execcmd *)(cmd);
 		while (execcmd->argument && execcmd->argument[i])

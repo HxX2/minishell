@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 17:18:32 by aamoussa          #+#    #+#             */
-/*   Updated: 2023/01/15 22:40:02 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/24 07:06:02 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_execcmd {
 
 typedef struct s_pipecmd {
 	int		type;
+	int		*std;
 	t_cmd	*left;
 	t_cmd	*right;
 }	t_pipecmd;

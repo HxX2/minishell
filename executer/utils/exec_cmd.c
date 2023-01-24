@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:36:31 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/23 12:10:45 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/24 14:14:17 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,22 @@ static	int	throw_error(char *cmd, char	*path)
 	return (0);
 }
 
-void child_proc(char *cmdpath, char **args, char **envp)
+void child_proc(char *cmdpath, char **args, int in, int out)
 {
-	execve(cmdpath, args, envp);
+	if (in != -1)
+	{
+		dup2(in, 0);
+		close(in);
+	}
+	if (out != -1)
+	{
+		dup2(out, 1); 
+		close(out); 
+	}
+	execve(cmdpath, args, g_gb.envp);
 }
 
-void	exe_cmd(char **args)
+void	exe_cmd(char **args, int in, int out)
 {
 	char	*cmdpath;
 	pid_t	pid;
@@ -93,10 +103,12 @@ void	exe_cmd(char **args)
 	cmdpath = get_cmd_path(args[0]);
 	if (throw_error(args[0], cmdpath))
 		return ;
-	pid = fork();
 	env_cast();
+	pid = fork();
 	if (!pid)
-		child_proc(cmdpath, args, g_gb.envp);
+		child_proc(cmdpath, args, in, out);
+	close(in);
+	close(out);
 	free(cmdpath);
 	while (wait(NULL) != -1)
 		;

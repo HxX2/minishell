@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:38:16 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/22 13:50:57 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/24 09:03:11 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ typedef struct s_envn
 }			t_envl;
 
 void	set_envval(char *key, char *new_val);
+void	exe_cmd(char **args, int in, int out);
 void 	env_push(t_envl **lst, t_envl *new);
 char	*get_envval(char *env_var);
 t_envl	*new_envp(char *env_var);
 t_envl	*get_env(char *env_var);
 void 	set_envp(char **envp);
 int		is_valid_id(char *id);
-void	exe_cmd(char **args);
 int		envp_size(void);
 void	env_cast(void);
 void	signals(void);
