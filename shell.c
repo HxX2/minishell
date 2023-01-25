@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:11:34 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/23 07:38:28 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/24 14:00:54 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,24 @@ void	freee(t_cmd **cmd)
 	}
 }
 
-void print_tree(t_cmd *cmd)
+void n_pipe(t_cmd *cmd, int in, int out)
 {
-	t_execcmd	*exec;
+	t_execcmd	*exec; 
 	t_pipecmd	*pip;
+	int			std[2];
 
 	if (cmd->type == EXEC)
 	{
 		exec = (t_execcmd *)cmd;
-		printf("cmd : %s\n", exec->argument[0]);
+		exe_cmd(exec->argument, in, out);
 	}
 	if (cmd->type == PIPE)
 	{
-		printf("pipe\n");
+		pipe(std);
 		pip = (t_pipecmd *)cmd;
-		print_tree(pip->left);
-		print_tree(pip->right);
+		pip->std = std;
+		n_pipe(pip->left, in, pip->std[1]);
+		n_pipe(pip->right, pip->std[0], -1);
 	}
 }
 
@@ -77,7 +79,6 @@ void	executer_sudo(t_cmd *cmd)
 {
 	t_execcmd	*x_cmd;
 
-	// print_tree(cmd);
 	env_cast();
 	if (cmd->type == EXEC)
 	{
@@ -96,9 +97,11 @@ void	executer_sudo(t_cmd *cmd)
 			export(x_cmd->argument);
 		else if (!ft_strcmp(x_cmd->argument[0], "echo"))
 			echo(x_cmd->argument);
-		else if (x_cmd->argument)
-			exe_cmd(x_cmd->argument);
+		else
+			n_pipe(cmd, -1, -1);
 	}
+	else
+		n_pipe(cmd, -1, -1);
 }
 
 void	leave(void)

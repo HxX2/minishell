@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 00:22:15 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/22 14:35:07 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/23 16:22:10 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sig_int(int signal)
 	{
 		g_gb.exit_statut = 1;
 		char *s = ps1();
-		printf("\r> %s    \n%s", rl_line_buffer, s);
+		printf("\33[2K\r> %s\n%s", rl_line_buffer, s);
 		rl_replace_line("", 0);
 		free(s);
 	}
