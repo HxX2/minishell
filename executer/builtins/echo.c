@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 05:44:09 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/22 08:26:13 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:50:47 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../executer.h"
 
 int	skip_par(char **args)
 {

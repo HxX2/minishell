@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 04:15:04 by zoukaddo          #+#    #+#             */
-/*   Updated: 2022/11/03 06:50:38 by aamoussa         ###   ########.fr       */
+/*   Created: 2023/01/26 18:07:37 by aamoussa          #+#    #+#             */
+/*   Updated: 2023/01/26 18:35:51 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "parser.h"
 
 int	protect_signals(int end[2], char *line)
 {

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 06:31:08 by zoukaddo          #+#    #+#             */
-/*   Updated: 2022/11/03 07:31:20 by aamoussa         ###   ########.fr       */
+/*   Created: 2023/01/26 18:11:11 by aamoussa          #+#    #+#             */
+/*   Updated: 2023/01/26 18:34:02 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "parser.h"
 
 bool	check_tok(int tok, t_cmd *cmd)
 {

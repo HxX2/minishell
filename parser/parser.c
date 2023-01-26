@@ -6,11 +6,11 @@
 /*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 21:06:38 by aamoussa          #+#    #+#             */
-/*   Updated: 2022/11/03 07:43:53 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:36:26 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "parser.h"
 
 bool	parse_exec_helper(char **ps, char *es, t_cmd *cmd)
 {

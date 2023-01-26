@@ -3,6 +3,7 @@
 		"minishell.h": "c",
 		"parser.h": "c",
 		"dirent.h": "c",
-		"execution.h": "c"
+		"execution.h": "c",
+		"readline.h": "c"
 	}
 }

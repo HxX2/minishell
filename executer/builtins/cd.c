@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 01:51:04 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/23 08:13:42 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:50:31 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../executer.h"
 
 int	is_file(char	*path)
 {

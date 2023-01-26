@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sigs.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 00:22:15 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/23 16:22:10 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:52:07 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../executer.h"
 
 void	sig_int(int signal)
 {

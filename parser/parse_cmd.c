@@ -6,11 +6,11 @@
 /*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 13:53:05 by aamoussa          #+#    #+#             */
-/*   Updated: 2022/11/03 06:50:51 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:36:03 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "parser.h"
 
 char	*skip_word(int *i, t_ends_of_tok **str, char **ps)
 {

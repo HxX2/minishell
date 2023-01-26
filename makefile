@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+         #
+#    By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 13:48:32 by zlafou            #+#    #+#              #
-#    Updated: 2023/01/23 14:16:36 by zlafou           ###   ########.fr        #
+#    Updated: 2023/01/26 18:17:24 by aamoussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= minishell
 
-PARSER			= arg_cleaner_utils.c arg_cleaner.c arg_cleanrtwo_utils.c argument_cleaner.c build_nodes.c her_doc_utils.c her_doc.c parse_cmd.c parser_utils.c parser.c redirection_parser.c redirection_utils.c token.c utils.c
+PARSER			= arg_cleaner_utils.c arg_cleaner.c arg_cleaner_two_utils.c argument_cleaner.c build_nodes.c her_doc_utils.c her_doc.c parse_cmd.c parser_utils.c parser.c redirection_parser.c redirection_utils.c token.c utils.c
 
 BUILTINS 		= env.c pwd.c unset.c exit.c cd.c export.c echo.c
 
@@ -22,7 +22,7 @@ SRCS			= shell.c shell_utils.c $(UTILS) $(BUILTINS) $(PARSER)
 
 OBJS			= $(SRCS:.c=.o)
 
-CFLAGS			= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS			= -Wall -Wextra -Werror #-g -fsanitize=address
 
 CC				= cc
 

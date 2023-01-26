@@ -6,11 +6,11 @@
 /*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:09:58 by aamoussa          #+#    #+#             */
-/*   Updated: 2022/11/03 07:31:36 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:37:11 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "parser.h"
 
 void	here_doc_expander(char **here_doc_lim, bool i)
 {

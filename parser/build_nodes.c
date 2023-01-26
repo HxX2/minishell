@@ -6,11 +6,11 @@
 /*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 23:43:08 by aamoussa          #+#    #+#             */
-/*   Updated: 2022/11/02 04:21:41 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:35:24 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "parser.h"
 
 t_cmd	*execcmd(void)
 {
