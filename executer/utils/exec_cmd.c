@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:36:31 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/26 18:51:56 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:36:02 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,35 +80,49 @@ static	int	throw_error(char *cmd, char	*path)
 	return (0);
 }
 
-void child_proc(char *cmdpath, char **args, int in, int out)
+void	child_proc(char *cmdpath, t_execcmd *cmd, int in, int out)
 {
-	if (in != -1)
+	if (cmd->input > 0)
+	{
+		dup2(cmd->input, 0);
+		close(cmd->input);
+	}
+	else if (in != -1)
 	{
 		dup2(in, 0);
 		close(in);
 	}
-	if (out != -1)
+	if (cmd->output > 1)
 	{
-		dup2(out, 1); 
-		close(out); 
+		dup2(cmd->output, 1);
+		close(cmd->output);
 	}
-	execve(cmdpath, args, g_gb.envp);
+	else if (out != -1)
+	{
+		dup2(out, 1);
+		close(out);
+	}
+	execve(cmdpath, cmd->argument, g_gb.envp);
 }
 
-void	exe_cmd(char **args, int in, int out)
+void	exe_cmd(t_execcmd *cmd, int in, int out)
 {
 	char	*cmdpath;
 	pid_t	pid;
 
-	cmdpath = get_cmd_path(args[0]);
-	if (throw_error(args[0], cmdpath))
+	cmdpath = get_cmd_path(cmd->argument[0]);
+	if (throw_error(cmd->argument[0], cmdpath))
 		return ;
 	env_cast();
 	pid = fork();
 	if (!pid)
-		child_proc(cmdpath, args, in, out);
+		child_proc(cmdpath, cmd, in, out);
 	close(in);
 	close(out);
+	if (cmd->input > 0)
+		close(cmd->input);
+	if (cmd->output > 1)
+		close(cmd->output);
 	free(cmdpath);
 	while (wait(NULL) != -1)
 		;

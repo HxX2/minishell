@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executer.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:38:16 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/26 19:03:31 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:36:38 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 
 void	set_envval(char *key, char *new_val);
-void	exe_cmd(char **args, int in, int out);
+void	exe_cmd(t_execcmd *cmd, int in, int out);
 void 	env_push(t_envl **lst, t_envl *new);
 char	*get_envval(char *env_var);
 t_envl	*new_envp(char *env_var);

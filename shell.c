@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:11:34 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/26 18:49:45 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:36:11 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void n_pipe(t_cmd *cmd, int in, int out)
 	if (cmd->type == EXEC)
 	{
 		exec = (t_execcmd *)cmd;
-		exe_cmd(exec->argument, in, out);
+		exe_cmd(exec, in, out);
 	}
 	if (cmd->type == PIPE)
 	{
