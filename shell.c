@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   shell.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:11:34 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/24 14:00:54 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:49:45 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "./executer/executer.h"
 
 char	*ps1(void)
 {

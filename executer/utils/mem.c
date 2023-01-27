@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mem.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 00:10:21 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/19 06:41:57 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:52:02 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../executer.h"
 
 void	*ft_xalloc(size_t n)
 {

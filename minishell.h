@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 17:11:41 by aamoussa          #+#    #+#             */
-/*   Updated: 2023/01/18 01:09:11 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/26 19:03:35 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,61 @@
 # include <fcntl.h>
 # include <dirent.h>
 # include "libft/libft.h"
-# include "./executer/executer.h"
-# include "./parser/parser.h"
-# include "./parser/token.h"
+# define EXEC  1
+# define REDIR 2
+# define PIPE  3
 # define BLUE "\033[0;35m"
 # define PURPLE "\033[0;34m"
 # define RESET "\033[0;0m"
 
-int			built_in_pwd(char **str, char *current);
-const char	*getprompt(char **envp);
-pid_t		fork_process(void);
 
+typedef struct s_envn
+{
+	char			*key;
+	char			*value;
+	struct s_envn	*next;
+}			t_envl;
+
+typedef struct s_gb_variable
+{
+	char	**envp;
+	t_envl	*env;
+	int		status;
+	int		exit_statut;
+	int		npipe;
+	int		fd_input_prev;
+	pid_t	last_pid;
+	int		input;
+	int		output;
+	int		here_doc;
+	char	*curent;
+}	t_gb_variable;
+
+t_gb_variable	g_gb;
+
+typedef struct s_cmd
+{
+	int	type;
+}	t_cmd;
+
+typedef struct s_execcmd {
+	int		type;
+	t_list	*args;
+	int		output;
+	int		input;
+	char	**argument;		
+}	t_execcmd;
+
+typedef struct s_pipecmd {
+	int		type;
+	int		*std;
+	t_cmd	*left;
+	t_cmd	*right;
+}	t_pipecmd;
+
+void	free_cmd(t_cmd *cmd);
+t_cmd	*parser(char **ps, char *es, char **envp);
+void	rl_replace_line(const char *text, int clear_undo);
+int		ft_strcmp(const char *s1, const char *s2);
+void	signals(void);
 #endif

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   env_ext.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 00:37:15 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/23 08:02:51 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:51:41 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../executer.h"
 
 char	*get_envval(char *env_var)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executer.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:38:16 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/24 09:03:11 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/26 19:03:31 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 # define EXECUTER_H
 # include "../minishell.h"	
 
-typedef struct s_envn
-{
-	char			*key;
-	char			*value;
-	struct s_envn	*next;
-}			t_envl;
 
 void	set_envval(char *key, char *new_val);
 void	exe_cmd(char **args, int in, int out);
@@ -32,11 +26,8 @@ void 	set_envp(char **envp);
 int		is_valid_id(char *id);
 int		envp_size(void);
 void	env_cast(void);
-void	signals(void);
 char	*ps1();
-
 char	*ft_joinpath(char const *s1, char const *s2);
-int		ft_strcmp(const char *s1, const char *s2);
 void	ft_rwipe(void *ptr, int plvl);
 void	*ft_xalloc(size_t n);
 

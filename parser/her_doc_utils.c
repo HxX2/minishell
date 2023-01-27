@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 06:45:50 by zoukaddo          #+#    #+#             */
-/*   Updated: 2022/11/03 06:46:50 by aamoussa         ###   ########.fr       */
+/*   Created: 2023/01/26 18:04:12 by aamoussa          #+#    #+#             */
+/*   Updated: 2023/01/26 18:35:41 by aamoussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "parser.h"
 
 void	here_doc_expand(char **line, bool i)
 {
