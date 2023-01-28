@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 02:07:41 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/26 18:51:29 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/27 20:24:43 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ int	is_valid_id(char *id)
 	int	i;
 
 	i = 0;
+	if (!id[i])
+		return (0);
 	while (id[i])
 	{
-		if (!ft_isalpha(id[i]) && id[i] != '_')
+		if (!ft_isalnum(id[i]) && id[i] != '_')
 			return (0);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:36:31 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/27 15:36:02 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/28 19:11:23 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	child_proc(char *cmdpath, t_execcmd *cmd, int in, int out)
 void	exe_cmd(t_execcmd *cmd, int in, int out)
 {
 	char	*cmdpath;
+	int		ch_status;
 	pid_t	pid;
 
 	cmdpath = get_cmd_path(cmd->argument[0]);
@@ -123,7 +124,7 @@ void	exe_cmd(t_execcmd *cmd, int in, int out)
 		close(cmd->input);
 	if (cmd->output > 1)
 		close(cmd->output);
-	free(cmdpath);
-	while (wait(NULL) != -1)
+	while (wait(&ch_status) != -1)
 		;
+	g_gb.exit_statut = WEXITSTATUS(ch_status);
 }

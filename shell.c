@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:11:34 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/27 15:36:11 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/28 19:22:56 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	freee(t_cmd **cmd)
 	}
 }
 
-void n_pipe(t_cmd *cmd, int in, int out)
+void	n_pipe(t_cmd *cmd, int in, int out)
 {
 	t_execcmd	*exec; 
 	t_pipecmd	*pip;
@@ -83,6 +83,14 @@ void	executer_sudo(t_cmd *cmd)
 	if (cmd->type == EXEC)
 	{
 		x_cmd = (t_execcmd *)cmd;
+		if (!x_cmd->argument)
+		{
+			if (x_cmd->input > 0)
+				close(x_cmd->input);
+			if (x_cmd->output > 1)
+				close(x_cmd->output);
+			return ;
+		}
 		if (!ft_strcmp(x_cmd->argument[0], "env"))
 			env();
 		else if (!ft_strcmp(x_cmd->argument[0], "unset"))
@@ -122,6 +130,7 @@ void	parser_sudo(char **envp)
 	buffer = NULL;
 	while (42)
 	{
+		g_gb.status = 0;
 		i = get_buffer(&buffer);
 		if (i == 0)
 			leave();

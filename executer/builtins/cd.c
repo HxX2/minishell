@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 01:51:04 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/26 18:50:31 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:14:54 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	update_dir(void)
 		set_envval("PWD", pwd);
 		free(g_gb.curent);
 		g_gb.curent = ft_strdup(pwd);
-		printf("%s\n", pwd);
 	}
 }
 
