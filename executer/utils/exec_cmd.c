@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:36:31 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/28 19:11:23 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/01/29 20:24:19 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	**get_paths(char *path)
 {
-	char **paths;
+	char	**paths;
 
 	if (!path)
 		return (NULL);
@@ -24,7 +24,7 @@ char	**get_paths(char *path)
 
 char	*get_cmd_path(char *cmd)
 {
-	char 	**paths;
+	char	**paths;
 	char	*path;
 	int		i;
 
@@ -40,7 +40,7 @@ char	*get_cmd_path(char *cmd)
 			if (!access(path, F_OK))
 			{
 				ft_rwipe(paths, 2);
-				return(path);
+				return (path);
 			}
 			else
 				free(path);
@@ -82,27 +82,15 @@ static	int	throw_error(char *cmd, char	*path)
 
 void	child_proc(char *cmdpath, t_execcmd *cmd, int in, int out)
 {
-	if (cmd->input > 0)
+	ch_signals();
+	dup_red_pipe(cmd, in, out);
+	if (is_builtin(cmd))
 	{
-		dup2(cmd->input, 0);
-		close(cmd->input);
+		exec_builtins(cmd);
+		exit(g_gb.exit_statut);
 	}
-	else if (in != -1)
-	{
-		dup2(in, 0);
-		close(in);
-	}
-	if (cmd->output > 1)
-	{
-		dup2(cmd->output, 1);
-		close(cmd->output);
-	}
-	else if (out != -1)
-	{
-		dup2(out, 1);
-		close(out);
-	}
-	execve(cmdpath, cmd->argument, g_gb.envp);
+	else
+		execve(cmdpath, cmd->argument, g_gb.envp);
 }
 
 void	exe_cmd(t_execcmd *cmd, int in, int out)
@@ -112,7 +100,7 @@ void	exe_cmd(t_execcmd *cmd, int in, int out)
 	pid_t	pid;
 
 	cmdpath = get_cmd_path(cmd->argument[0]);
-	if (throw_error(cmd->argument[0], cmdpath))
+	if (!is_builtin(cmd) && throw_error(cmd->argument[0], cmdpath))
 		return ;
 	env_cast();
 	pid = fork();
@@ -124,7 +112,12 @@ void	exe_cmd(t_execcmd *cmd, int in, int out)
 		close(cmd->input);
 	if (cmd->output > 1)
 		close(cmd->output);
+	signal(SIGINT, SIG_IGN);
 	while (wait(&ch_status) != -1)
 		;
-	g_gb.exit_statut = WEXITSTATUS(ch_status);
+	if (WIFEXITED(ch_status))
+		g_gb.exit_statut = WEXITSTATUS(ch_status);
+	else
+		g_gb.exit_statut = 128 + WTERMSIG(ch_status);
+	signals();
 }

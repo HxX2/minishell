@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+         #
+#    By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 13:48:32 by zlafou            #+#    #+#              #
-#    Updated: 2023/01/26 18:17:24 by aamoussa         ###   ########.fr        #
+#    Updated: 2023/01/29 20:23:18 by zlafou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ PARSER			= arg_cleaner_utils.c arg_cleaner.c arg_cleaner_two_utils.c argument_cl
 
 BUILTINS 		= env.c pwd.c unset.c exit.c cd.c export.c echo.c
 
-UTILS			= env_utils.c mem.c env_ext.c strings.c sigs.c exec_cmd.c
+UTILS			= env_utils.c mem.c env_ext.c strings.c sigs.c exec_cmd.c exec_utils.c
 
 SRCS			= shell.c shell_utils.c $(UTILS) $(BUILTINS) $(PARSER)
 
