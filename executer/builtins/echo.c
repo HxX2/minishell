@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 05:44:09 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/26 18:50:47 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:16:53 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	skip_par(char **args)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (args[i])
@@ -26,7 +26,7 @@ int	skip_par(char **args)
 		while (args[i][j] == 'n' )
 			j++;
 		if (args[i][j])
-			break;
+			break ;
 		i++;
 	}
 	return (i);
@@ -35,7 +35,7 @@ int	skip_par(char **args)
 void	echo(char **args)
 {
 	int	i;
-	int p;
+	int	p;
 
 	i = skip_par(args);
 	p = (i < 2);

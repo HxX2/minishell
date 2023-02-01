@@ -3,35 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   shell.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:11:34 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/26 18:49:45 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:21:25 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./executer/executer.h"
 
-char	*ps1(void)
-{
-	char	*sj1;
-	char	*sj2;
-	char	*sj3;
-	char	*sj4;
-
-	sj1 = ft_strjoin(BLUE, get_envval("USER"));
-	sj2 = ft_strjoin(sj1, RESET "@" BLUE "minishell " RESET "[" PURPLE);
-	sj3 = ft_strjoin(sj2, get_envval("PWD"));
-	sj4 = ft_strjoin(sj3, RESET "] \n> ");
-	free(sj1);
-	free(sj2);
-	free(sj3);
-	return (sj4);
-}
-
 int	get_buffer(char **buffer)
 {
-	char *pr;
+	char	*pr;
 
 	ft_free(buffer);
 	pr = ps1();
@@ -54,27 +37,6 @@ void	freee(t_cmd **cmd)
 	}
 }
 
-void n_pipe(t_cmd *cmd, int in, int out)
-{
-	t_execcmd	*exec; 
-	t_pipecmd	*pip;
-	int			std[2];
-
-	if (cmd->type == EXEC)
-	{
-		exec = (t_execcmd *)cmd;
-		exe_cmd(exec->argument, in, out);
-	}
-	if (cmd->type == PIPE)
-	{
-		pipe(std);
-		pip = (t_pipecmd *)cmd;
-		pip->std = std;
-		n_pipe(pip->left, in, pip->std[1]);
-		n_pipe(pip->right, pip->std[0], -1);
-	}
-}
-
 void	executer_sudo(t_cmd *cmd)
 {
 	t_execcmd	*x_cmd;
@@ -83,31 +45,21 @@ void	executer_sudo(t_cmd *cmd)
 	if (cmd->type == EXEC)
 	{
 		x_cmd = (t_execcmd *)cmd;
-		if (!ft_strcmp(x_cmd->argument[0], "env"))
-			env();
-		else if (!ft_strcmp(x_cmd->argument[0], "unset"))
-			unset(x_cmd->argument);
-		else if (!ft_strcmp(x_cmd->argument[0], "pwd"))
-			pwd();
-		else if (!ft_strcmp(x_cmd->argument[0], "exit"))
-			ft_exit(x_cmd->argument);
-		else if (!ft_strcmp(x_cmd->argument[0], "cd"))
-			cd(x_cmd->argument);
-		else if (!ft_strcmp(x_cmd->argument[0], "export"))
-			export(x_cmd->argument);
-		else if (!ft_strcmp(x_cmd->argument[0], "echo"))
-			echo(x_cmd->argument);
+		if (!x_cmd->argument)
+		{
+			if (x_cmd->input > 0)
+				close(x_cmd->input);
+			if (x_cmd->output > 1)
+				close(x_cmd->output);
+			return ;
+		}
+		if (is_builtin(x_cmd))
+			exec_builtins (x_cmd);
 		else
 			n_pipe(cmd, -1, -1);
 	}
 	else
 		n_pipe(cmd, -1, -1);
-}
-
-void	leave(void)
-{
-	printf("exit\n");
-	exit(g_gb.exit_statut);
 }
 
 void	parser_sudo(char **envp)
@@ -122,6 +74,7 @@ void	parser_sudo(char **envp)
 	buffer = NULL;
 	while (42)
 	{
+		g_gb.status = 0;
 		i = get_buffer(&buffer);
 		if (i == 0)
 			leave();

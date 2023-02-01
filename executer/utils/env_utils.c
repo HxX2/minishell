@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:13:22 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/26 18:51:51 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/27 20:38:38 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_envl	*new_envp(char *env_var)
 		*sp = '\0';
 		node->key = ft_strdup(env_var);
 		node->value = ft_strdup(sp + 1);
+		*sp = '=';
 	}
 	else
 	{

@@ -4,6 +4,7 @@
 		"parser.h": "c",
 		"dirent.h": "c",
 		"execution.h": "c",
-		"readline.h": "c"
+		"readline.h": "c",
+		"executer.h": "c"
 	}
 }

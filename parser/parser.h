@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 17:18:32 by aamoussa          #+#    #+#             */
-/*   Updated: 2023/01/26 19:02:36 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:15:26 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 # define NOTHING 0
 # define REMOVEQUOTE 1
 # define EXPAND 2
-
-
 
 typedef struct s_ends_of_tok
 {
@@ -55,7 +53,6 @@ typedef struct s_counter_start {
 	int	counter;
 
 }	t_counter_start;
-
 
 void	raise_error(char *message, int exitcode, int tok, t_cmd *cmd);
 void	free_args_list(t_list **args);

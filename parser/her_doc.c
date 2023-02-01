@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   her_doc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamoussa <aamoussa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:07:37 by aamoussa          #+#    #+#             */
-/*   Updated: 2023/01/26 18:35:51 by aamoussa         ###   ########.fr       */
+/*   Updated: 2023/01/27 18:43:09 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ int	here_doc(char *lim, bool flag)
 	pipe(end);
 	fd = get_first_line(end, lim, flag);
 	if (fd == 0)
-		return (-1);
+	{	
+		close(end[1]);
+		return (end[0]);
+	}
 	else if (fd > 1)
 		return (fd);
 	return (sig_and_firstline(end, lim, flag));
