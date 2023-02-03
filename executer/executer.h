@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:38:16 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/29 20:24:51 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/02/03 20:45:44 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 # define EXECUTER_H
 # include "../minishell.h"	
 
+typedef struct s_vect
+{
+	int	in;
+	int	out;
+}		t_vect;
+
 void	dup_red_pipe(t_execcmd *cmd, int in, int out);
 char	*ft_joinpath(char const *s1, char const *s2);
-void	exe_cmd(t_execcmd *cmd, int in, int out);
+void	close_io(t_execcmd *cmd);
+void	exe_cmd(t_execcmd *cmd, int in, int out, int *p);
 void	set_envval(char *key, char *new_val);
 void	env_push(t_envl **lst, t_envl *new);
 void	exec_builtins(t_execcmd *x_cmd);
