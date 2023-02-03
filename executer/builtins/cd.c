@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 01:51:04 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/28 19:14:54 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/02/03 23:23:37 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	update_dir(void)
 	{
 		oldpwd = ft_strdup(get_envval("PWD"));
 		set_envval("OLDPWD", oldpwd);
-		set_envval("PWD", pwd);
+		set_envval("PWD", ft_strdup(pwd));
 		free(g_gb.curent);
 		g_gb.curent = ft_strdup(pwd);
+		free(pwd);
 	}
 }
 

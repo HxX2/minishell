@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:36:31 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/29 20:24:19 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/02/03 20:48:05 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,15 @@ static	int	throw_error(char *cmd, char	*path)
 	return (0);
 }
 
-void	child_proc(char *cmdpath, t_execcmd *cmd, int in, int out)
+void	child_proc(char *cmdpath, t_execcmd *cmd, t_vect pip, int *p)
 {
 	ch_signals();
-	dup_red_pipe(cmd, in, out);
+	dup_red_pipe(cmd, pip.in, pip.out);
+	if (p)
+	{
+		close(p[0]);
+		close(p[1]);
+	}
 	if (is_builtin(cmd))
 	{
 		exec_builtins(cmd);
@@ -93,31 +98,21 @@ void	child_proc(char *cmdpath, t_execcmd *cmd, int in, int out)
 		execve(cmdpath, cmd->argument, g_gb.envp);
 }
 
-void	exe_cmd(t_execcmd *cmd, int in, int out)
+void	exe_cmd(t_execcmd *cmd, int in, int out, int *p)
 {
 	char	*cmdpath;
-	int		ch_status;
-	pid_t	pid;
+	t_vect	pip;
 
+	pip.in = in;
+	pip.out = out;
 	cmdpath = get_cmd_path(cmd->argument[0]);
 	if (!is_builtin(cmd) && throw_error(cmd->argument[0], cmdpath))
 		return ;
 	env_cast();
-	pid = fork();
-	if (!pid)
-		child_proc(cmdpath, cmd, in, out);
-	close(in);
-	close(out);
-	if (cmd->input > 0)
-		close(cmd->input);
-	if (cmd->output > 1)
-		close(cmd->output);
+	g_gb.last_fd = fork();
+	if (!g_gb.last_fd)
+		child_proc(cmdpath, cmd, pip, p);
+	close_io(cmd);
 	signal(SIGINT, SIG_IGN);
-	while (wait(&ch_status) != -1)
-		;
-	if (WIFEXITED(ch_status))
-		g_gb.exit_statut = WEXITSTATUS(ch_status);
-	else
-		g_gb.exit_statut = 128 + WTERMSIG(ch_status);
-	signals();
+	free(cmdpath);
 }

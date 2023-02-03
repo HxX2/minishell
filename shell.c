@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:11:34 by zlafou            #+#    #+#             */
-/*   Updated: 2023/01/29 20:21:25 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/02/01 18:34:31 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ void	executer_sudo(t_cmd *cmd)
 		if (is_builtin(x_cmd))
 			exec_builtins (x_cmd);
 		else
-			n_pipe(cmd, -1, -1);
+			n_pipe(cmd, -1, -1, NULL);
 	}
 	else
-		n_pipe(cmd, -1, -1);
+		n_pipe(cmd, -1, -1, NULL);
+	waitproc();
 }
 
 void	parser_sudo(char **envp)

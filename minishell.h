@@ -6,7 +6,7 @@
 /*   By: zlafou <zlafou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 17:11:41 by aamoussa          #+#    #+#             */
-/*   Updated: 2023/01/29 20:28:02 by zlafou           ###   ########.fr       */
+/*   Updated: 2023/02/03 20:41:41 by zlafou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_gb_variable
 {
 	char	**envp;
 	t_envl	*env;
+	int		last_fd;
 	int		status;
 	int		exit_statut;
 	int		npipe;
@@ -82,9 +83,10 @@ void	leave(void);
 void	free_cmd(t_cmd *cmd);
 int		is_builtin(t_execcmd *x_cmd);
 void	exec_builtins(t_execcmd *x_cmd);
-void	n_pipe(t_cmd *cmd, int in, int out);
+void	n_pipe(t_cmd *cmd, int in, int out, int *p);
 t_cmd	*parser(char **ps, char *es, char **envp);
 void	rl_replace_line(const char *text, int clear_undo);
 int		ft_strcmp(const char *s1, const char *s2);
+void	waitproc(void);
 void	signals(void);
 #endif
